@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --montserrat: Montserrat, sans-serif;
+  --poppins: Poppins, sans-serif;
+  --mulish: Mulish, sans-serif;
+}
