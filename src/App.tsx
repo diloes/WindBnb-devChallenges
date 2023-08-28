@@ -1,4 +1,5 @@
 import Logo from './components/Logo'
+import SearchBox from './components/SearchBox'
 
 const App = () => {
   return (
@@ -7,7 +8,9 @@ const App = () => {
         <div className='mb-6'>
           <Logo />
         </div>
-        <div>Input</div>
+        <div>
+          <SearchBox />
+        </div>
       </header>
       <main></main>
       <footer></footer>
