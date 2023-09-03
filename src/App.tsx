@@ -12,7 +12,10 @@ const App = () => {
           <SearchBox />
         </div>
       </header>
-      <main></main>
+      <main className='flex justify-between p-1 font-montserrat'>
+        <h1 className='font-bold text-lg'>Stays in Finland</h1>
+        <p className='text-sm'>12+ stays</p>
+      </main>
       <footer></footer>
     </div>
   )
