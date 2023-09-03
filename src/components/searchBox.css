@@ -1,0 +1,23 @@
+.buttonLeft {
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border: 1px solid #f2f2f2;
+  box-shadow: -4px 4px 6px 0px rgba(0, 0, 0, 0.1);
+}
+
+.buttonMiddle {
+  border-top: 1px solid #f2f2f2;
+  border-bottom: 1px solid #f2f2f2;
+  box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.1);
+}
+
+.buttonRight {
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border: 1px solid #f2f2f2;
+  box-shadow: 4px 4px 6px 0px rgba(0, 0, 0, 0.1);
+}
