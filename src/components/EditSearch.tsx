@@ -1,6 +1,9 @@
 import { Stay } from '../stay.interface'
 import stays from '../stays.json'
 
+// Creamos nuevo array sin ciudades repetidas
+const uniqueCities = [...new Set(stays.map((stay) => stay.city))]
+
 const EditSearch = ({ handleMenuClose }: { handleMenuClose: () => void }) => {
   return (
     <section className=' h-[80vh] font-mulish fixed z-50 inset-0 bg-white p-4'>
@@ -20,14 +23,14 @@ const EditSearch = ({ handleMenuClose }: { handleMenuClose: () => void }) => {
         </div>
       </div>
 
-      {stays.map((stay: Stay) => (
-        <div className='flex mt-5 px-3'>
-          <img src='/ubicacion.png' />
-          <p>
-            {stay.city}, {stay.country}
-          </p>
-        </div>
-      ))}
+      {uniqueCities.map((city: string) => {
+        return (
+          <div className='flex mt-5 px-3'>
+            <img src='/ubicacion.png' />
+            <p>{city}, Finland</p>
+          </div>
+        )
+      })}
     </section>
   )
 }
