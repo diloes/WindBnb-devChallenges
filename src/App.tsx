@@ -5,7 +5,7 @@ import StayPreview from './components/StayPreview'
 const App = () => {
   return (
     <div className='p-4'>
-      <header className=''>
+      <header>
         <div className='mb-6'>
           <Logo />
         </div>

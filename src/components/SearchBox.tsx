@@ -35,5 +35,3 @@ const SearchBox = () => {
 }
 
 export default SearchBox
-
-//TODO: Poner el estado para abrir y cerrar y la función en los botones, diseñar
