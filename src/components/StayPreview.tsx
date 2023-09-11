@@ -1,9 +1,12 @@
-import stays from '../stays.json'
+import { useAppContext } from '../context/context'
+import { Stay } from '../stay.interface'
 
 const StayPreview = () => {
+  const { stays } = useAppContext()
+
   return (
     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
-      {stays.map((stay) => (
+      {stays.map((stay: Stay) => (
         <div key={stay.title} className='mb-8'>
           <img
             src={stay.photo}
