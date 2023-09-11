@@ -16,6 +16,7 @@ export const useAppContext = () => {
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const [stays] = useState(staysJson)
   const [newStays, setNewStays] = useState(stays)
+  const [location, setLocation] = useState<string>('Helsinki')
 
   const findByCity = (city: string) => {
     const filteredHouses = stays.filter((house) => {
@@ -26,6 +27,8 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   }
 
   return (
-    <AppContext.Provider value={{ newStays, findByCity }}>{children}</AppContext.Provider>
+    <AppContext.Provider value={{ newStays, findByCity, location, setLocation }}>
+      {children}
+    </AppContext.Provider>
   )
 }

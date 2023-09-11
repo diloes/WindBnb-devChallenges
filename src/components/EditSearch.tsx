@@ -6,13 +6,11 @@ import { useAppContext } from '../context/context'
 const uniqueCities = [...new Set(stays.map((stay) => stay.city))]
 
 const EditSearch = ({ handleMenuClose }: { handleMenuClose: () => void }) => {
-  const [location, setLocation] = useState<string>('Helsinki')
+  const { findByCity, setLocation, location } = useAppContext()
 
   const handleLocationChange = (city: string) => {
     setLocation(city)
   }
-
-  const { findByCity } = useAppContext()
 
   return (
     <section className='flex flex-col h-[80vh] font-mulish fixed z-50 inset-0 bg-white p-4'>
