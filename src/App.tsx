@@ -4,8 +4,8 @@ import StayPreview from './components/StayPreview'
 
 const App = () => {
   return (
-    <div className='p-4'>
-      <header>
+    <div className='p-4 md:p-8 max-w-7xl mx-auto'>
+      <header className='md:flex md:justify-between md:items-center'>
         <div className='mb-6'>
           <Logo />
         </div>

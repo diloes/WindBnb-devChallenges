@@ -2,10 +2,14 @@ import stays from '../stays.json'
 
 const StayPreview = () => {
   return (
-    <div className='grid'>
+    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
       {stays.map((stay) => (
         <div key={stay.title} className='mb-8'>
-          <img src={stay.photo} alt={stay.title} className='rounded-3xl mb-3' />
+          <img
+            src={stay.photo}
+            alt={stay.title}
+            className='rounded-3xl mb-3 md:h-[240px] md:w-[100%] object-cover'
+          />
           <div className='flex justify-between mb-2 items-center'>
             <div className='flex items-center gap-2'>
               {stay.superHost ? (
