@@ -14,18 +14,18 @@ export const useAppContext = () => {
 
 // Componente que provee el contexto
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
-  const [stays, setStays] = useState(staysJson)
+  const [stays] = useState(staysJson)
+  const [newStays, setNewStays] = useState(stays)
 
   const findByCity = (city: string) => {
-    const filteredHouses = stays.filter((house) => house.city === city)
-    setStays(filteredHouses)
+    const filteredHouses = stays.filter((house) => {
+      return house.city === city
+    })
+
+    setNewStays(filteredHouses)
   }
 
   return (
-    <AppContext.Provider value={{ stays, setStays, findByCity }}>
-      {children}
-    </AppContext.Provider>
+    <AppContext.Provider value={{ newStays, findByCity }}>{children}</AppContext.Provider>
   )
 }
-
-//TODO: Seguir implementando el context

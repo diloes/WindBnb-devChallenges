@@ -2,11 +2,11 @@ import { useAppContext } from '../context/context'
 import { Stay } from '../stay.interface'
 
 const StayPreview = () => {
-  const { stays } = useAppContext()
+  const { newStays } = useAppContext()
 
   return (
     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
-      {stays.map((stay: Stay) => (
+      {newStays.map((stay: Stay) => (
         <div key={stay.title} className='mb-8'>
           <img
             src={stay.photo}
