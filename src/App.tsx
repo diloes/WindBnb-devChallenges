@@ -19,7 +19,9 @@ const App = () => {
       <main className='grid p-1 font-montserrat'>
         <div className='flex justify-between mb-5'>
           <h1 className='font-bold text-lg'>Stays in Finland</h1>
-          <p className='text-sm'>{newStays.length > 12 ? '12+' : newStays.length } stays</p>
+          <p className='text-sm'>
+            {newStays.length > 12 ? '12+' : newStays.length} stays
+          </p>
         </div>
 
         <StayPreview />
@@ -34,5 +36,3 @@ const App = () => {
 }
 
 export default App
-
-// TODO: Trabajar los Guests

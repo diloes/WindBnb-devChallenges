@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import stays from '../stays.json'
 import { useAppContext } from '../context/context'
 
@@ -43,6 +42,28 @@ const EditSearch = ({ handleMenuClose }: { handleMenuClose: () => void }) => {
             <p className='cursor-pointer'>{city}, Finland</p>
           </div>
         ))}
+      </div>
+
+      <div className='flex-grow text-sm '>
+        <div className='mb-4'>
+          <p className='font-bold text-[#333]'>Adults</p>
+          <p className='text-[#BDBDBD] mb-1'>Ages 13 or above</p>
+          <div className='flex gap-2 items-center'>
+            <button className='border border-black rounded-md px-2'>-</button>
+            <p>0</p>
+            <button className='border border-black rounded-md px-2'>+</button>
+          </div>
+        </div>
+
+        <div>
+          <p className='font-bold text-[#333]'>Children</p>
+          <p className='text-[#BDBDBD] mb-1'>Ages 2-12</p>
+          <div className='flex gap-2 items-center'>
+            <button className='border border-black rounded-md px-2'>-</button>
+            <p>0</p>
+            <button className='border border-black rounded-md px-2'>+</button>
+          </div>
+        </div>
       </div>
 
       <button
