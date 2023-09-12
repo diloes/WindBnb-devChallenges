@@ -13,6 +13,7 @@ const EditSearch = ({ handleMenuClose }: { handleMenuClose: () => void }) => {
 
   return (
     <section className='flex flex-col h-[80vh] font-mulish fixed z-50 inset-0 bg-white p-4'>
+      {/* Header Search */}
       <div className='flex justify-between items-center mb-3'>
         <p className='font-bold text-xs'>Edit your search</p>
         <p onClick={handleMenuClose} className='cursor-pointer'>
@@ -20,6 +21,7 @@ const EditSearch = ({ handleMenuClose }: { handleMenuClose: () => void }) => {
         </p>
       </div>
 
+      {/* Info */}
       <div className='border rounded-lg'>
         <div className='border-b p-2'>
           <p className='text-[9px] font-extrabold'>LOCATION</p>
@@ -31,6 +33,7 @@ const EditSearch = ({ handleMenuClose }: { handleMenuClose: () => void }) => {
         </div>
       </div>
 
+      {/* Cities */}
       <div className='flex-grow'>
         {uniqueCities.map((city: string) => (
           <div
@@ -44,7 +47,9 @@ const EditSearch = ({ handleMenuClose }: { handleMenuClose: () => void }) => {
         ))}
       </div>
 
+      {/* Guests */}
       <div className='flex-grow text-sm '>
+        {/* Adults */}
         <div className='mb-4'>
           <p className='font-bold text-[#333]'>Adults</p>
           <p className='text-[#BDBDBD] mb-1'>Ages 13 or above</p>
@@ -55,6 +60,7 @@ const EditSearch = ({ handleMenuClose }: { handleMenuClose: () => void }) => {
           </div>
         </div>
 
+        {/* Children */}
         <div>
           <p className='font-bold text-[#333]'>Children</p>
           <p className='text-[#BDBDBD] mb-1'>Ages 2-12</p>
