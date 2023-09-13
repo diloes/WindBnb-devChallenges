@@ -2,6 +2,7 @@ import { createContext, useState } from 'react'
 import { useContext } from 'react'
 
 import staysJson from '../stays.json'
+import { Stay } from '../stay.interface'
 // Creamos el contexto
 const AppContext = createContext({})
 
@@ -15,8 +16,10 @@ export const useAppContext = () => {
 // Componente que provee el contexto
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const [stays] = useState(staysJson)
-  const [newStays, setNewStays] = useState(stays)
+  const [newStays, setNewStays] = useState<Stay[]>(stays)
   const [location, setLocation] = useState<string>('Helsinki')
+
+  const [guests, setGuests] = useState(0)
 
   const findByCity = (city: string) => {
     const filteredHouses = stays.filter((house) => {
@@ -27,7 +30,9 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   }
 
   return (
-    <AppContext.Provider value={{ newStays, findByCity, location, setLocation }}>
+    <AppContext.Provider
+      value={{ guests, setGuests, newStays, findByCity, location, setLocation }}
+    >
       {children}
     </AppContext.Provider>
   )

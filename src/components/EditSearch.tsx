@@ -1,15 +1,23 @@
 import stays from '../stays.json'
 import { useAppContext } from '../context/context'
+import { useEffect, useState } from 'react'
 
 // Crear un nuevo array sin ciudades repetidas
 const uniqueCities = [...new Set(stays.map((stay) => stay.city))]
 
 const EditSearch = ({ handleMenuClose }: { handleMenuClose: () => void }) => {
-  const { findByCity, setLocation, location } = useAppContext()
+  const { findByCity, setLocation, location, guests, setGuests } = useAppContext()
+
+  const [adults, setAdults] = useState(0)
+  const [children, setChildren] = useState(0)
 
   const handleLocationChange = (city: string) => {
     setLocation(city)
   }
+
+  useEffect(() => {
+    setGuests(adults + children)
+  }, [adults, children])
 
   return (
     <section className='flex flex-col h-[80vh] font-mulish fixed z-50 inset-0 bg-white p-4'>
@@ -29,7 +37,7 @@ const EditSearch = ({ handleMenuClose }: { handleMenuClose: () => void }) => {
         </div>
         <div className='p-2'>
           <p className='text-[9px] font-extrabold'>GUESTS</p>
-          <p className='text-[#BDBDBD] text-sm'>Add guests</p>
+          <p className='text-[#BDBDBD] text-sm'>{guests === 0 ? 'Add guests' : guests}</p>
         </div>
       </div>
 
@@ -54,9 +62,19 @@ const EditSearch = ({ handleMenuClose }: { handleMenuClose: () => void }) => {
           <p className='font-bold text-[#333]'>Adults</p>
           <p className='text-[#BDBDBD] mb-1'>Ages 13 or above</p>
           <div className='flex gap-2 items-center'>
-            <button className='border border-black rounded-md px-2'>-</button>
-            <p>0</p>
-            <button className='border border-black rounded-md px-2'>+</button>
+            <button
+              className='border border-black rounded-md px-2'
+              onClick={() => setAdults(guests - 1)}
+            >
+              -
+            </button>
+            <p>{adults}</p>
+            <button
+              className='border border-black rounded-md px-2'
+              onClick={() => setAdults(guests + 1)}
+            >
+              +
+            </button>
           </div>
         </div>
 
@@ -65,9 +83,19 @@ const EditSearch = ({ handleMenuClose }: { handleMenuClose: () => void }) => {
           <p className='font-bold text-[#333]'>Children</p>
           <p className='text-[#BDBDBD] mb-1'>Ages 2-12</p>
           <div className='flex gap-2 items-center'>
-            <button className='border border-black rounded-md px-2'>-</button>
-            <p>0</p>
-            <button className='border border-black rounded-md px-2'>+</button>
+            <button
+              className='border border-black rounded-md px-2'
+              onClick={() => setChildren(children - 1)}
+            >
+              -
+            </button>
+            <p>{children}</p>
+            <button
+              className='border border-black rounded-md px-2'
+              onClick={() => setChildren(children + 1)}
+            >
+              +
+            </button>
           </div>
         </div>
       </div>
