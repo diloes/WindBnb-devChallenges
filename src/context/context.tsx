@@ -17,7 +17,7 @@ export const useAppContext = () => {
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const [stays] = useState(staysJson)
   const [newStays, setNewStays] = useState<Stay[]>(stays)
-  const [location, setLocation] = useState<string>('Helsinki')
+  const [location, setLocation] = useState<string>('Whole')
 
   const [guests, setGuests] = useState(0)
 
@@ -29,9 +29,25 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
     setNewStays(filteredHouses)
   }
 
+  const findByGuests = (guests: number) => {
+    const filteredHouses = stays.filter((house) => {
+      return house.maxGuests >= guests
+    })
+
+    setNewStays(filteredHouses)
+  }
+
   return (
     <AppContext.Provider
-      value={{ guests, setGuests, newStays, findByCity, location, setLocation }}
+      value={{
+        guests,
+        setGuests,
+        newStays,
+        findByCity,
+        findByGuests,
+        location,
+        setLocation
+      }}
     >
       {children}
     </AppContext.Provider>
