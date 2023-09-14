@@ -21,20 +21,30 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
 
   const [guests, setGuests] = useState(0)
 
-  const findByCity = (city: string) => {
-    const filteredHouses = stays.filter((house) => {
-      return house.city === city
-    })
+  const findByCityAndGuests = (city: string, guests: number) => {
+    if (city !== 'Whole' && guests !== 0) {
+      const filteredHouses = stays.filter((house) => {
+        return house.city === city
+      })
 
-    setNewStays(filteredHouses)
-  }
+      setNewStays(filteredHouses)
+    }
 
-  const findByGuests = (guests: number) => {
-    const filteredHouses = stays.filter((house) => {
-      return house.maxGuests >= guests
-    })
+    if (city !== 'Whole' && guests === 0) {
+      const filteredHouses = stays.filter((house) => {
+        return house.city === city
+      })
 
-    setNewStays(filteredHouses)
+      setNewStays(filteredHouses)
+    }
+
+    if (guests !== 0 && city === 'Whole') {
+      const filteredHouses = stays.filter((house) => {
+        return house.maxGuests >= guests
+      })
+
+      setNewStays(filteredHouses)
+    }
   }
 
   return (
@@ -43,8 +53,7 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
         guests,
         setGuests,
         newStays,
-        findByCity,
-        findByGuests,
+        findByCityAndGuests,
         location,
         setLocation
       }}

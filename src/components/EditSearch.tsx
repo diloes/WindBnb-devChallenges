@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react'
 const uniqueCities = [...new Set(stays.map((stay) => stay.city))]
 
 const EditSearch = ({ handleMenuClose }: { handleMenuClose: () => void }) => {
-  const { findByCity, findByGuests, setLocation, location, guests, setGuests } =
+  const { findByCityAndGuests, setLocation, location, guests, setGuests } =
     useAppContext()
 
   const [adults, setAdults] = useState(0)
@@ -108,9 +108,9 @@ const EditSearch = ({ handleMenuClose }: { handleMenuClose: () => void }) => {
       <button
         className='m-auto px-6 py-4 rounded-3xl bg-red-500 bg-opacity-90 text-white'
         onClick={() => {
-          handleMenuClose(),
-            location !== 'Whole' && findByCity(location),
-            guests > 0 && findByGuests(guests)
+          handleMenuClose(), findByCityAndGuests(location, guests)
+          /* guests > 0 && findByGuests(guests),
+            location !== 'Whole' && findByCity(location) */
         }}
       >
         <div className='flex gap-3'>
