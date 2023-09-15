@@ -11,6 +11,10 @@ export type StayContext = {
   location: string
   guests: number
   setGuests: (guests: number) => void
+  adults: number
+  setAdults: (adults: number) => void
+  childrenS: number
+  setChildren: (children: number) => void
 }
 
 // Creamos el contexto
@@ -20,7 +24,11 @@ export const AppContext = createContext<StayContext>({
   setLocation: () => {},
   location: '',
   guests: 0,
-  setGuests: () => {}
+  setGuests: () => {},
+  adults: 0,
+  childrenS: 0,
+  setChildren: () => {},
+  setAdults: () => {}
 })
 
 // Un custom hook para usar el context(opcional)
@@ -35,6 +43,8 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const [stays] = useState(staysJson)
   const [newStays, setNewStays] = useState<Stay[]>(stays)
   const [location, setLocation] = useState<string>('Whole')
+  const [adults, setAdults] = useState(0)
+  const [childrenS, setChildren] = useState(0)
 
   const [guests, setGuests] = useState(0)
 
@@ -72,7 +82,11 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
         newStays,
         findByCityAndGuests,
         location,
-        setLocation
+        setLocation,
+        adults,
+        setAdults,
+        childrenS,
+        setChildren
       }}
     >
       {children}

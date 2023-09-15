@@ -1,16 +1,21 @@
 import stays from '../stays.json'
 import { useAppContext } from '../context/context'
-import { useState } from 'react'
 
 // Crear un nuevo array sin ciudades repetidas
 const uniqueCities = [...new Set(stays.map((stay) => stay.city))]
 
 const EditSearch = ({ handleMenuClose }: { handleMenuClose: () => void }) => {
-  const { findByCityAndGuests, setLocation, location, guests, setGuests } =
-    useAppContext()
-
-  const [adults, setAdults] = useState(0)
-  const [children, setChildren] = useState(0)
+  const {
+    findByCityAndGuests,
+    setLocation,
+    location,
+    guests,
+    setGuests,
+    adults,
+    setAdults,
+    childrenS,
+    setChildren
+  } = useAppContext()
 
   const handleLocationChange = (city: string) => {
     setLocation(city)
@@ -27,12 +32,12 @@ const EditSearch = ({ handleMenuClose }: { handleMenuClose: () => void }) => {
   }
 
   const incrementChildren = () => {
-    setChildren(children + 1)
+    setChildren(childrenS + 1)
     setGuests(guests + 1)
   }
 
   const decrementChildren = () => {
-    setChildren(children - 1)
+    setChildren(childrenS - 1)
     setGuests(guests - 1)
   }
 
@@ -110,7 +115,7 @@ const EditSearch = ({ handleMenuClose }: { handleMenuClose: () => void }) => {
             >
               -
             </button>
-            <p>{children}</p>
+            <p>{childrenS}</p>
             <button
               className='border border-black rounded-md px-2'
               onClick={incrementChildren}
