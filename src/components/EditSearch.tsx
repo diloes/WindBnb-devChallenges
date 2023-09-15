@@ -22,11 +22,13 @@ const EditSearch = ({ handleMenuClose }: { handleMenuClose: () => void }) => {
   }
 
   const incrementAdults = () => {
+    0
     setAdults(adults + 1)
     setGuests(guests + 1)
   }
 
   const decrementAdults = () => {
+    if (adults === 0) return
     setAdults(adults - 1)
     setGuests(guests - 1)
   }
@@ -37,6 +39,7 @@ const EditSearch = ({ handleMenuClose }: { handleMenuClose: () => void }) => {
   }
 
   const decrementChildren = () => {
+    if (childrenS === 0) return
     setChildren(childrenS - 1)
     setGuests(guests - 1)
   }
