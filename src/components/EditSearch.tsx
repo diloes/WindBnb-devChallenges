@@ -16,9 +16,25 @@ const EditSearch = ({ handleMenuClose }: { handleMenuClose: () => void }) => {
     setLocation(city)
   }
 
-  useEffect(() => {
-    setGuests(adults + children)
-  }, [adults, children])
+  const incrementAdults = () => {
+    setAdults(adults + 1)
+    setGuests(guests + 1)
+  }
+
+  const decrementAdults = () => {
+    setAdults(adults - 1)
+    setGuests(guests - 1)
+  }
+
+  const incrementChildren = () => {
+    setChildren(children + 1)
+    setGuests(guests + 1)
+  }
+
+  const decrementChildren = () => {
+    setChildren(children - 1)
+    setGuests(guests - 1)
+  }
 
   return (
     <section className='flex flex-col h-[80vh] font-mulish fixed z-50 inset-0 bg-white p-4'>
@@ -69,14 +85,14 @@ const EditSearch = ({ handleMenuClose }: { handleMenuClose: () => void }) => {
           <div className='flex gap-2 items-center'>
             <button
               className='border border-black rounded-md px-2'
-              onClick={() => setAdults(guests - 1)}
+              onClick={decrementAdults}
             >
               -
             </button>
             <p>{adults}</p>
             <button
               className='border border-black rounded-md px-2'
-              onClick={() => setAdults(guests + 1)}
+              onClick={incrementAdults}
             >
               +
             </button>
@@ -90,14 +106,14 @@ const EditSearch = ({ handleMenuClose }: { handleMenuClose: () => void }) => {
           <div className='flex gap-2 items-center'>
             <button
               className='border border-black rounded-md px-2'
-              onClick={() => setChildren(children - 1)}
+              onClick={decrementChildren}
             >
               -
             </button>
             <p>{children}</p>
             <button
               className='border border-black rounded-md px-2'
-              onClick={() => setChildren(children + 1)}
+              onClick={incrementChildren}
             >
               +
             </button>
