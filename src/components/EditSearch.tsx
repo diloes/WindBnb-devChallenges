@@ -130,8 +130,6 @@ const EditSearch = ({ handleMenuClose }: { handleMenuClose: () => void }) => {
         className='m-auto px-6 py-4 rounded-3xl bg-red-500 bg-opacity-90 text-white'
         onClick={() => {
           handleMenuClose(), findByCityAndGuests(location, guests)
-          /* guests > 0 && findByGuests(guests),
-            location !== 'Whole' && findByCity(location) */
         }}
       >
         <div className='flex gap-3'>

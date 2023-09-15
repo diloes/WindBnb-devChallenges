@@ -51,7 +51,7 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const findByCityAndGuests = (city: string, guests: number) => {
     if (city !== 'Whole' && guests !== 0) {
       const filteredHouses = stays.filter((house) => {
-        return house.city === city
+        return house.city === city && house.maxGuests >= guests
       })
 
       setNewStays(filteredHouses)
