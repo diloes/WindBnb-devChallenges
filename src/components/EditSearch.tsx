@@ -1,6 +1,6 @@
 import stays from '../stays.json'
 import { useAppContext } from '../context/context'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 // Crear un nuevo array sin ciudades repetidas
 const uniqueCities = [...new Set(stays.map((stay) => stay.city))]
