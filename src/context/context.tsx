@@ -1,10 +1,27 @@
-import { createContext, useState } from 'react'
-import { useContext } from 'react'
+import { createContext, useContext, useState } from 'react'
+//import { useContext } from 'react'
 
 import staysJson from '../stays.json'
 import { Stay } from '../stay.interface'
+
+export type StayContext = {
+  newStays: Stay[]
+  findByCityAndGuests: (city: string, guests: number) => void
+  setLocation: (city: string) => void
+  location: string
+  guests: number
+  setGuests: (guests: number) => void
+}
+
 // Creamos el contexto
-const AppContext = createContext({})
+export const AppContext = createContext<StayContext>({
+  newStays: [],
+  findByCityAndGuests: () => {},
+  setLocation: () => {},
+  location: '',
+  guests: 0,
+  setGuests: () => {}
+})
 
 // Un custom hook para usar el context(opcional)
 export const useAppContext = () => {
