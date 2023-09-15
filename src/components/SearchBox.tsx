@@ -1,6 +1,6 @@
 import SearchIcon from './SearchIcon'
 
-import './SearchBox.css'
+import './searchBox.css'
 import EditSearch from './EditSearch'
 import { useState } from 'react'
 import { useAppContext } from '../context/context'
